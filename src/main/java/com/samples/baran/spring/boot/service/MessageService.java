@@ -14,7 +14,12 @@ import com.samples.baran.spring.boot.component.MessageRepository;
 
 @Service
 public class MessageService {
-	public List<String> messageCache = new ArrayList<>();
+	private List<String> messageCache = new ArrayList<>();
+	
+	public List<String> getMessageCache() {
+		return messageCache;
+	}
+
 	@Autowired
 	private MessageRepository repo;
 

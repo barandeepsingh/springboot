@@ -25,7 +25,7 @@ public class SpringBootPocsApplication {
 	@Scheduled(fixedRateString = "${scheduledtask.clearcache.delay}")
 	void clearingMessageCacge() {
 		System.out.println("Clearing cache");
-		messageService.messageCache.clear();
+		messageService.getMessageCache().clear();
 	}
 	
 }
