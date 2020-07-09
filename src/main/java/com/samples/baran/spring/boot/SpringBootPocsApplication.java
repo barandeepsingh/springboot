@@ -43,14 +43,15 @@ public class SpringBootPocsApplication {
 		log.info("Clearing cache");
 		messageService.getMessageCache().clear();
 	}
-
+	
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				// .apis(RequestHandlerSelectors.any())
-				// .paths(PathSelectors.any())
-				.apis(RequestHandlerSelectors.basePackage("com.samples.baran.spring.boot.controllers"))
-				.paths(PathSelectors.ant("/api/*")).build().apiInfo(getApiInfo());
+				.apis(RequestHandlerSelectors.any())
+			    .paths(PathSelectors.any())
+				//.apis(RequestHandlerSelectors.basePackage("com.samples.baran.spring.boot.controllers"))
+				//.paths(PathSelectors.ant("/api/*"))
+			    .build().apiInfo(getApiInfo());
 	}
 
 	private ApiInfo getApiInfo() {
