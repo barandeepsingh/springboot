@@ -4,7 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
+import org.springframework.util.concurrent.ListenableFuture;
 
 @Service
 public class KafkaProducerService {
@@ -15,8 +17,8 @@ public class KafkaProducerService {
 
 	public void sendMessage(String message) {
 		log.info("Sending message " + message);
-		this.kafkaTemplate.send(TOPIC, message);
-
+		ListenableFuture<SendResult<String, String>> send = this.kafkaTemplate.send(TOPIC, message);
+	
 	}
 
 }
